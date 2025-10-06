@@ -775,11 +775,11 @@
         <span>AI机器人</span>
     </div>
 
-    <!-- 机器人弹窗代码保持不变 -->
     <div class="service-popup" id="servicePopup">
         <div class="popup-header">
             <div class="header-left">
                 <i class="fas fa-robot" style="margin-right: 8px; color: #0084ff;"></i>
+                <!-- 修改为"AI机器人" -->
                 <div class="service-name">AI机器人</div>
             </div>
             <div class="popup-close" id="popupClose">
@@ -791,6 +791,7 @@
             <div class="message-row service-message-row">
                 <img src="yibazhan/images/b1.jpg" alt="小雪头像" class="service-avatar-img">
                 <div>
+                    <!-- 新增审核员信息显示 -->
                     <div class="reviewer-info">
                         <span class="reviewer-name">审核员：小雪</span>
                         <span class="online-text">在线中</span>
@@ -802,16 +803,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="input-area">
-            <label for="img-input" class="img-upload">
-                <i class="fas fa-upload"></i> 选择截图（可单次/多次上传，共需4张）
-            </label>
-            <input type="file" id="img-input" accept="image/jpg,image/png,image/jpeg" multiple>
-            <div class="upload-tip" id="uploadTip">已选择：0/4张</div>
-            <div class="warning-tip" id="warningTip">⚠️ 不规范/重复截图，进度已重置！</div>
-        </div>
-    </div>
 
     <script>
         // 随机关键词功能
@@ -1074,7 +1065,7 @@
         };
     </script>
 
-    <!-- 机器人交互逻辑保持不变 -->
+   <!-- 机器人交互逻辑 -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // 客服弹窗逻辑
