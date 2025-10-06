@@ -438,34 +438,220 @@
         }
         
         /* 客服按钮样式 */
-        .service-trigger-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 120px;
-            height: 44px;
-            background: #0084ff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,132,255,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 15px;
-            cursor: pointer;
-            z-index: 9998;
-            transition: all 0.3s;
-            gap: 6px;
-        }
-        
-        .service-trigger-btn:hover {
-            background: #0073e6;
-            box-shadow: 0 6px 16px rgba(0,132,255,0.4);
-        }
-        
-        .service-trigger-btn i {
-            font-size: 18px;
-        }
+       .service-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 380px;
+    max-width: calc(100% - 40px);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: #fff;
+    overflow: hidden;
+    font-family: "Microsoft YaHei", sans-serif;
+    display: none;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+.popup-header {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+}
+.service-name {
+    font-weight: 600;
+    color: #333;
+    margin-right: 8px;
+    font-size: 15px;
+}
+.online-status {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4cd964;
+    margin-right: 4px;
+    animation: blink 1.5s infinite;
+}
+.status-text {
+    font-size: 12px;
+    color: #666;
+}
+.popup-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.2s;
+}
+.popup-close:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.message-container {
+    height: 400px;
+    padding: 16px;
+    overflow-y: auto;
+    background: #fafafa;
+    flex: 1;
+}
+.message-row {
+    margin-bottom: 16px;
+    display: flex;
+    clear: both;
+}
+.service-message-row {
+    align-items: flex-start;
+}
+.user-message-row {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+}
+
+.service-avatar-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    border: 1px solid #eee;
+}
+.user-avatar-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-left: 8px;
+    border: 1px solid #eee;
+    display: none;
+}
+
+.message-bubble {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    line-height: 1.5;
+    font-size: 14px;
+    position: relative;
+}
+.service-bubble {
+    background: #e5f3ff;
+    color: #333;
+    border-top-left-radius: 4px;
+}
+.service-bubble::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid #e5f3ff;
+}
+.user-bubble {
+    background: #0084ff;
+    color: #fff;
+    border-top-right-radius: 4px;
+}
+.user-bubble::before {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid #0084ff;
+}
+
+/* 审核员信息样式 */
+.reviewer-info {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+.reviewer-name {
+    font-weight: 500;
+    margin-right: 6px;
+}
+.online-text {
+    color: #4cd964;
+    font-weight: 500;
+}
+
+.user-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    max-width: 75%;
+    margin-left: auto;
+}
+.user-images img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.input-area {
+    padding: 12px 16px;
+    border-top: 1px solid #eee;
+    background: #fff;
+}
+.img-upload {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #0084ff;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.img-upload:hover {
+    background: #0073e6;
+}
+#img-input {
+    display: none;
+}
+.upload-tip {
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+    text-align: center;
+}
+.warning-tip {
+    font-size: 12px;
+    color: #ff4d4f;
+    margin-top: 4px;
+    text-align: center;
+    display: none;
+}
+
+@keyframes blink {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
         
         /* 复制成功弹窗 */
         #copy-popup {
@@ -770,39 +956,49 @@
     <div id="copy-popup">文案已复制剪贴板</div>
 
     <!-- 机器人界面HTML结构 -->
-    <div class="service-trigger-btn" id="serviceTriggerBtn">
-        <i class="fas fa-robot"></i>
-        <span>AI机器人</span>
+<div class="service-trigger-btn" id="serviceTriggerBtn">
+    <i class="fas fa-robot"></i>
+    <span>AI机器人</span>
+</div>
+
+    <div class="input-area">
+        <label for="img-input" class="img-upload">
+            <i class="fas fa-upload"></i> 选择截图（可单次/多次上传，共需4张）
+        </label>
+        <input type="file" id="img-input" accept="image/jpg,image/png,image/jpeg" multiple>
+        <div class="upload-tip" id="uploadTip">已选择：0/4张</div>
+        <div class="warning-tip" id="warningTip">⚠️ 不规范/重复截图，进度已重置！</div>
+    </div>
+</div>
+
+<div class="service-popup" id="servicePopup">
+    <div class="popup-header">
+        <div class="header-left">
+            <i class="fas fa-robot" style="margin-right: 8px; color: #0084ff;"></i>
+            <div class="service-name">AI机器人</div>
+        </div>
+        <div class="popup-close" id="popupClose">
+            <i class="fas fa-times"></i>
+        </div>
     </div>
 
-    <div class="service-popup" id="servicePopup">
-        <div class="popup-header">
-            <div class="header-left">
-                <i class="fas fa-robot" style="margin-right: 8px; color: #0084ff;"></i>
-                <!-- 修改为"AI机器人" -->
-                <div class="service-name">AI机器人</div>
-            </div>
-            <div class="popup-close" id="popupClose">
-                <i class="fas fa-times"></i>
-            </div>
-        </div>
+    <div class="message-container" id="messageContainer">
+        <div class="message-row service-message-row">
+            <img src="yibazhan/images/b1.jpg" alt="小雪头像" class="service-avatar-img">
+            <div>
 
-        <div class="message-container" id="messageContainer">
-            <div class="message-row service-message-row">
-                <img src="yibazhan/images/b1.jpg" alt="小雪头像" class="service-avatar-img">
-                <div>
                     <!-- 新增审核员信息显示 -->
-                    <div class="reviewer-info">
-                        <span class="reviewer-name">审核员：小雪</span>
-                        <span class="online-text">在线中</span>
-                    </div>
-                    <div class="message-bubble service-bubble">
-                        请将评论的规范截图都发送给我，审核通过后我会发送所有资源的跳转页链接~<br>
-                        注意：不规范截图和发送重复的截图将重置进度，所以是一定不能投机取巧的哦。
-                    </div>
+                <div class="reviewer-info">
+                    <span class="reviewer-name">审核员：小雪</span>
+                    <span class="online-text">在线中</span>
+                </div>
+                <div class="message-bubble service-bubble">
+                    请将评论的规范截图都发送给我，审核通过后我会发送所有资源的跳转页链接~<br>
+                    注意：不规范截图和发送重复的截图将重置进度，所以是一定不能投机取巧的哦。
                 </div>
             </div>
         </div>
+    </div>
 
     <script>
         // 随机关键词功能
